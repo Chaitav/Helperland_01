@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif !important;
+}
+
+.navbar-nav a{
+    padding: 10px 20px !important;
+}
+nav{
+    background-color: #525252;
+  }
+  .navbar{
+    padding: 0px 0px !important;
+  }
+  #navbarCollapse {
+      justify-content: right;
+    }
+    .navbar-brand img {
+      width: 73px;
+      height: 54px;
+    }
+    .menu1{
+      background-color: #29626D;
+      border: 1px solid white;
+      border-radius: 25px;
+    }
+    .nvbarbtn {
+      border-radius: 25px;
+      border: 1px solid white;
+      color: white;
+      font-size: 17px;
+      padding: 5px 20px;
+      margin: 0px 5px;
+      background: transparent;
+    }
+    .menu {
+      text-decoration: none;
+      color: white;
+      font-size: 17px;
+      padding: 10px 0px;
+      margin: 0px 6px;
+    }
+  
+    #navbarCollapse button{
+        font-size: 16px;
+        padding: 9px 22px 12px 22px;
+        background-color: #29626D;
+    }
+    .menu:hover {
+      border-radius: 25px;
+      border: 1px solid white;
+      color: white;
+      background-color: #29626D;
+    }
+    .ddmenu{
+      color: white;
+      margin-right: 15px;
+      border:1px solid white;
+      border-radius: 20px;
+    }
+    .bg_main{
+        width: 100%;
+        height: auto;
+    }
+
+
+    .star {
+        margin: 9px 0px 38px 0px;
+      }
+      .star img{
+        margin: 0px 9px;
+      }
+      .side_hr{
+        width: 62px;
+      }
+      .caption p{
+          margin-bottom: 0px !important;
+          font-size: 16px;
+          color: #646464;
+          text-align: center;
+      }
+      .container h2{
+        color: #4f4f4f;
+        font-size: 36px;
+      }
+      .aboutusHeading1{
+        margin-top: 39px;
+      }
+      .aboutusHeading2{
+        margin-top: 78px;
+      }
+
+
+      .contact{
+        margin-top: 77px;
+        font-size: 18px;
+      }
+      .subscribeEmail{
+        margin-top: 20px;
+        padding-bottom: 53px;
+      }
+      #email {
+        width: 233px;
+        border-radius: 50px;
+        background-color: #f4f5f8;
+        color: black;
+        border-color: black;
+        display: inline-block;
+      }
+      .submitbtn {
+        background-color: #ff7b6d;
+        color: white;
+        border-radius: 50px;
+        margin-left: 11px;
+      }
+
+
+    footer{
+        background-color: #111111;
+        width: 100%;
+        color: white;
+        height: auto;
+      }
+      footer .container a {
+        text-decoration: none;
+        color: #F1F1F1;
+        font-size: 14px;
+      }
+      .fmenu{
+        padding-top: 20px;
+        max-width: 1350px;
+      }
+      .fimg1 {
+        width: 9px;
+        height: 18px;
+        margin-right: 20px;
+      }
+      .fimg2 {
+        width: 20px;
+        height: 20px;
+        margin-right: 30px;
+      }
+      .flogo{
+        margin-left: 40px;
+      }
+      
+      .right{
+        color: #737381;
+        font-size: 14px;
+        padding-top: 15px;
+    padding-bottom: 20px !important;
+      }
+      footer p{
+        margin-bottom: 0px !important;
+      }
+      
+      .fmenulink a:hover{
+        color: tomato;
+      }
+  
+      @media screen and (max-width: 996px) {
+        .fmenu{
+          height: auto;
+        }
+      }
+        @media screen and (max-width: 1415px) {
+        .fimage {
+            margin-top: 61px;
+            float: none;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+       }
+        
+        @media screen and (max-width: 907px) {
+         
+          .fmenulink{
+            flex-direction: column;
+          }
+        }
+        @media screen and (max-width: 460px) {
+          .fmenu{
+            flex-direction: column;
+    
+          }
+          .flogo{
+            margin-left: 0px;
+            margin-bottom: 5px;
+          }
+          .fimg2{
+            margin-right: 0px;
+          }
+        }
+        @media screen and (max-width: 325px) {
+          .submitbtn {
+            margin-top: 10px;
+          }
+        }
+        @media screen and (max-width: 523px) {
+          footer{
+            height: auto;
+            width: fit-content;
+          }
+        }
+        @media screen and (max-width: 576px) {
+          .iconcolumn{
+              margin-top:30px ;
+          }
+        }
+        @media screen and (max-width: 992px) {
+          #navbarCollapse{
+            text-align: center;
+          }
+          .nvbarbtn{
+            margin-top: 15px;
+          }
+          .navbar-nav{
+            align-items: center;
+        }
+        }
