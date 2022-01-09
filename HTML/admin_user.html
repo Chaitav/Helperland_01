@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+            crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"/>
+    <link rel="stylesheet" href="admin_user.css" />
+    <title>User Management</title>
+  </head>
+
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid ">
+            <div class="d-flex align-items-center">
+                <div class="mobileNavIcon">
+                  <button class="navbar-toggler">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+                </div>
+                <h1 class="text-white">helperland</h1>
+              </div>
+              <div class="d-flex align-items-center">
+                <img
+                  class="mx-1"
+                  src="images/iuser.png"
+                  alt="userIcon"
+                />
+                <span class="text-white mx-1">James Smith</span>
+                <img class="mx-1" src="images/logout.png" />
+              </div>
+          </div>
+        </nav>
+        
+      </header>
+   
+        <section class="main">
+            <div class="container-fluid dashboard">
+    
+            
+            <div class="d-flex" id="wrapper">
+                    <div id="sidebar-wrapper">
+                    <div class="closebtn">
+                        <img src="images/close.png" alt="">
+                        <br>
+                        <hr>
+                    </div>
+                    <ul>
+                        <li><a href="admin_service.html">Service Requests</a></li>
+                        <li><a href="admin_user.html" class="active">User Management</a></li>          
+                  </ul>
+                </div>
+        
+                <div class="w-100 pl-3" id="page-content-wrapper">
+                   
+        
+                    
+                      <div class="d-flex datatable_heading">
+                        <div>User Management</div>
+                        <div class="ml-auto addBtn">
+                            <button><img src="images/adder.png">&nbsp;&nbsp;&nbsp;Add New User</button>
+                        </div>
+                      </div>
+                      <div>
+                          <form>
+                              <div class="filter row">
+                                  <div class="col-xl-2 col-md-4 col-6">
+                                    <select name="userName" id="userName">
+                                        <option selected>User Name</option>
+                                        <option value="user1">user1</option>
+                                        <option value="user2">user2</option>
+                                        <option value="user3">user3</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-xl-3 col-md-4 col-6">
+                                    <select name="userRole" id="userRole">
+                                        <option selected>User Role</option>
+                                        <option value="role1">role1</option>
+                                        <option value="role2">role2</option>
+                                        <option value="role3">role3</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-xl-3 col-md-4 col-6">
+                                    <div class="input-group row mobile">
+                                        <input type="text" class="form-control input-group-text col-3 px-0" id="countryCode" placeholder="+49" spellcheck="false" data-ms-editor="true">
+                                        <input type="text" name="phone" id="phone" class="form-control col-9" placeholder="Phone Number" spellcheck="false" data-ms-editor="true">
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-2 col-md-4 col-6">
+                                      <input type="number" placeholder="Zipcode" name="zipcode" id="zipcode">
+                                  </div>
+                                  <div class="col-xl-1 col-md-4 col-6">
+                                      <button type="submit" id="search">Search</button>
+                                  </div>
+                                  <div class="col-xl-1 col-md-4 col-6">
+                                    <button  id="clear">Clear</button>
+                                </div>
+                              </div>
+
+                          </form>
+                      </div>
+                        <div class="row mt-3">
+                           
+                            <div class="col">
+                                <table class="data-table w-100 table" id="userManagementTable">
+                                    <thead>
+                                        <tr>
+                                            <th>User Name</th>
+                                            <th>User Type</th>
+                                            <th>Role</th>
+                                            <th>Postal Code</th>
+                                            <th>City</th>
+                                            <th>Radius</th>
+                                            <th>User Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lyum watson</td>
+                                            <td>Call Center</td>
+                                            <td>Inquiry Manager</td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>
+                                            <td class="actionbutton">
+                                                <div class="action">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                                  <div class="threeDotsubMenu">
+                                                      <ul>
+                                                          <li><a href="#">Edit</a></li>
+                                                          <li><a href="#">Deactivate</a></li>
+                                                          <li class="mb-0"><a href="#">Service History</a></li>
+                                                      </ul>
+                                                  </div>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Service provider</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td>10 km</td>
+                                            <td class="active"><p>Active</p></td> 
+                                            <td class="actionbutton">
+                                                <div class="action">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                                  <div class="threeDotsubMenu">
+                                                      <ul>
+                                                          <li><a href="#">Edit</a></li>
+                                                          <li><a href="#">Deactivate</a></li>
+                                                          <li class="mb-0"><a href="#">Service History</a></li>
+                                                      </ul>
+                                                  </div>
+                                            </td>                                         
+                                        </tr> 
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Call Center</td>
+                                            <td>Inquiry Manager</td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>
+                                            <td class="actionbutton">
+                                                <div class="action">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                                  <div class="threeDotsubMenu">
+                                                      <ul>
+                                                          <li><a href="#">Edit</a></li>
+                                                          <li><a href="#">Deactivate</a></li>
+                                                          <li class="mb-0"><a href="#">Service History</a></li>
+                                                      </ul>
+                                                  </div>
+                                            </td>
+                                        </tr>  
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>
+                                            <td class="actionbutton">
+                                                <div class="action">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                                  <div class="threeDotsubMenu">
+                                                      <ul>
+                                                          <li><a href="#">Edit</a></li>
+                                                          <li><a href="#">Deactivate</a></li>
+                                                          <li class="mb-0"><a href="#">Service History</a></li>
+                                                      </ul>
+                                                  </div>
+                                            </td>
+                                        </tr>  
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Call center</td>
+                                            <td>Content Manager</td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton">
+                                                <div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>  
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="inactive"><p>Inactive</p></td>
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Activate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>   
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Service provider</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td>20 km</td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>  
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Call center</td>
+                                            <td>Finance Manager</td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>      
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>      
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>      
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>      
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>      
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>Customer</td>
+                                            <td></td>
+                                            <td>123456</td>
+                                            <td>Berlin</td>
+                                            <td></td>
+                                            <td class="active"><p>Active</p></td>                                            
+                                            <td class="actionbutton"><div class="action">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                              <div class="threeDotsubMenu">
+                                                  <ul>
+                                                      <li><a href="#">Edit</a></li>
+                                                      <li><a href="#">Deactivate</a></li>
+                                                      <li class="mb-0"><a href="#">Service History</a></li>
+                                                  </ul>
+                                              </div></td>
+                                        </tr>      
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <p class="rights">©2018 Helperland. All rights reserved.</p>
+                    </div>
+            </div>
+            </div>
+            
+        
+            </div>
+        
+        </section>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+                crossorigin="anonymous"></script>    
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+        <script src="js/admin_user.js"></script>
+  </body>
+</html>
