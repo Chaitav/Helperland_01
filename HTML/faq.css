@@ -1,0 +1,259 @@
+
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif !important;
+  }
+  
+  
+  
+  nav{
+    background-color: #525252;
+  }
+  #navbarCollapse {
+      justify-content: right;
+    }
+    .navbar-nav a{
+      padding: 10px 20px !important;
+  }
+    .navbar-brand img {
+      width: 73px;
+      height: 54px;
+    }
+    .menu1{
+      background-color: #29626D;
+      border: 1px solid white;
+      border-radius: 25px;
+    }
+    .nvbarbtn {
+      border-radius: 25px;
+      border: 1px solid white;
+      color: white;
+      font-size: 17px;
+      padding: 5px 20px;
+      margin: 0px 5px;
+      background: transparent;
+    }
+    .menu {
+      text-decoration: none;
+      color: white;
+      font-size: 17px;
+      padding: 10px 15px !important;
+      margin: 0px 6px;
+    }
+    
+    #navbarCollapse button{
+        font-size: 16px;
+        padding: 9px 22px 12px 22px;
+        background-color: #29626D;
+    }
+    .menu:hover {
+      border-radius: 25px;
+      border: 1px solid white;
+      color: white;
+      background-color: #29626D;
+    }
+    .ddmenu{
+      color: white;
+      margin-right: 15px;
+      border:1px solid white;
+      border-radius: 20px;
+    }
+  
+
+  .heading{
+    margin-top: 32px;
+  }
+  .heading h2{
+    color: #4F4F4F;
+    font-size: 35px;
+    display: block;
+  }
+  .faq hr{
+    width: 62px;
+  }
+  .star {
+    margin-top: 9px;
+  }
+  .star img{
+    margin: 0px 9px;
+  }
+  .caption{
+    margin-top: 34px;
+  }
+  .caption p{
+    font-size: 18px;
+    color: #646464;
+    margin-bottom: 35px;
+  }
+  .row1{
+    width: 960px;
+    height: 68px;
+    border-bottom-color: #1d7a8c;
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+  }
+  .column1,.column2{
+    justify-content: center;
+    align-items: center; 
+    display: flex;
+    padding: 0px 0px;
+   }
+   .column2{
+     background-color:  #f6f6f6;
+   }
+  .column1{
+    background-color: #1d7a8c;
+    color: white;
+  }
+  .row1 h2{
+    font-size: 24px;
+  }
+  .question h5{
+    font-size: 16px;
+    text-align: left;
+  }
+  .question{
+    width: 931px;
+  }
+  .que_col{
+    padding: 0px 0px;
+  }
+  #accordionSection p{
+    display: inline;
+    margin-left: 15px;
+    font-size: 16px;
+    color: #646464;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .accordion-item{
+  margin-top: 37px;
+  }
+  #accordionSection a{
+    text-decoration: none;
+  }
+  #accordion-body{
+  margin: 15px 0px 10px 52px;
+  font-size: 16px;
+  color: #646464;
+  }
+  .contact{
+    margin-top: 55px;
+    font-size: 18px;
+  }
+  .faq form {
+    margin-top: 20px;
+    padding-bottom: 53px;
+  }
+  #email {
+    width: 233px;
+    border-radius: 50px;
+    background: none;
+    color: black;
+    border-color: black;
+    display: inline-block;
+  }
+  .submitbtn {
+    background-color: #ff7b6d;
+    color: white;
+    border-radius: 50px;
+    margin-left: 11px;
+  }
+  
+
+  
+  footer{
+    background-color: #111111;
+    width: 100%;
+    color: white;
+    height: auto;
+  }
+  footer .container a {
+    text-decoration: none;
+    color: #F1F1F1;
+    font-size: 14px;
+  }
+  .fmenu{
+    padding-top: 20px;
+    max-width: 1350px;
+  }
+  .fimg1 {
+    width: 9px;
+    height: 18px;
+    margin-right: 20px;
+  }
+  .fimg2 {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .right{
+    color: #737381;
+    font-size: 14px;
+      padding-top: 15px;
+      padding-bottom: 20px !important;
+  }
+  footer p{
+    margin-bottom: 0px !important;
+  }
+  .fmenulink  a:hover{
+    color: tomato;
+  }
+
+  @media screen and (max-width: 996px) {
+    .fmenu{
+      height: auto;
+    }
+  }
+  @media screen and (max-width: 460px) {
+    .fmenu{
+      flex-direction: column;
+  
+    }
+    .flogo{
+      margin-left: 0px;
+      margin-bottom: 5px;
+    }
+    .fimg2{
+      margin-right: 0px;
+    }
+  }
+    @media screen and (max-width: 1415px) {
+    .fimage {
+        margin-top: 61px;
+        float: none;
+        text-align: center;
+        padding-bottom: 20px;
+      }
+      .fimg2 {
+        margin-left: 20px;
+      }
+     
+    }
+    @media screen and (max-width: 907px) {
+      .submitbtn {
+        margin-top: 10px;
+      }
+      .fmenulink{
+        flex-direction: column;
+      }
+    }
+    @media screen and (max-width: 523px) {
+      footer{
+        height: auto;
+      }
+    }
+    @media screen and (max-width: 992px) {
+      #navbarCollapse{
+        text-align: center;
+      }
+      .nvbarbtn{
+        margin-top: 15px;
+      }
+      .navbar-nav{
+        align-items: center;
+    }
+    }
+  
