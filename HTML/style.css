@@ -1,0 +1,516 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+
+
+  .countryFlag .dropdown-menu{
+    min-width: 0px !important;
+  }
+  .countryFlag button{
+    background: none;
+  }
+  .countryFlag .btn-group {
+  margin:30px;
+  background: none !important;
+  }
+  .countryFlag .btn img { width:30px;}
+  .countryFlag .dropdown-menu img { width:30px}
+  .home {
+    background-image: url("images/main_bg.png");
+    background-size: cover;
+    background-size: 100% auto;
+  }
+  #navbarCollapse {
+    justify-content: right;
+  }
+  .navbar-brand img {
+    width: 175px;
+    height: 130px;
+  }
+  .nvbarbtn {
+    border-radius: 20px;
+    border: 1px solid white;
+    color: white;
+    font-size: 17px;
+    padding: 5px 20px;
+    margin: 0px 5px;
+    background: transparent;
+  }
+  .navbar-nav a{
+    padding: 10px 20px !important;
+  }
+  .menu {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 5px 20px;
+    margin: 0px 6px;
+  }
+  .menu1{
+    border: 1px solid white;
+    border-radius: 45px;
+  }
+  .menu:hover {
+    border-radius: 20px;
+    border: 1px solid white;
+    color: white;
+  }
+  .flag {
+    height: 11px;
+    height: 20px;
+    margin-left: 22px;
+  }
+  .drop_down {
+    width: 12px;
+    height: 7px;
+    margin-left: 7px;
+    cursor: pointer;
+  
+  }
+  .ddmenu{
+    color: white;
+    margin-right: 15px;
+    border:1px solid white;
+    border-radius: 20px;
+  }
+  .home_caption {
+    color: white;
+    padding: 30px 30px;
+    margin-top: 161px;
+    margin-left: 10px;
+  }
+  .home_caption h2 {
+    font-weight: bold;
+  }
+  .book_btn a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px 25px;
+    color: white;
+    background-color: #006072;
+    opacity: 0.5;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    opacity: 1;
+  }
+  .process {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .step-img {
+    justify-content: center;
+    margin-top: 174px;
+  }
+  .step-txt {
+    color: white;
+    font-size: 20px;
+  }
+  .arrow img {
+    width: 85px;
+    height: 23px;
+  }
+  .parent {
+    position: relative;
+    padding-top: 40px;
+    top: 0;
+    left: 0;
+    padding-bottom: 33px;
+  }
+  .image1 {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+  }
+  .image2 {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -27px;
+    height: 20px;
+    width: 15px;
+  }
+  
+ 
+  .scontainer {
+    height: 72.57%;
+  }
+  .service_caption {
+    color: #565656;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .service .card {
+    border: none;
+    align-items: center;
+    width: 319.5px;
+  }
+  .srcard{
+      width: 319.5px;
+      margin-right: 71px;
+  }
+  .servicemrgn{
+    color: #4F4F4F;
+    font-size: 40px;
+  }
+  .service .card-body {
+    width: 319.5px;
+    height: 319.5px;
+    padding: 0px 0px 0px 0px;
+  }
+  .service .circle {
+    width: 319.5px;
+    height: 319.5px;
+  }
+  .service .card-body h4 {
+    padding-top: 38.5px;
+  }
+  .service .card-body p {
+    margin-top: 39px;
+    margin-bottom: 156px;
+  }
+  .service .servicemrgn {
+    padding-top: 87px;
+    padding-bottom: 84.5px;
+    font-size: 40px;
+    color: #4f4f4f;
+  }
+  
+
+  .about {
+    height: 25.43%;
+  }
+  .acontainer {
+    width: 72.43%;
+    height: 88.58%;
+  }
+  .aboutmrgn1 {
+    margin-top: 105px;
+  }
+  .aboutmrgn2 {
+    margin-top: 63px;
+    width: 403px;
+    height: 337px;
+    margin-left: 97px;
+  }
+  .aboutmrgn h2 {
+    color: #4f4f4f;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .aboutmrgn p {
+    color: #4f4f4f;
+    font-size: 18px;
+  }
+  .blog1{
+      width: 31.33%;
+  }
+  .blog{
+      width: 31%;
+  }
+  .blogmrgn {
+    margin-top: 47px;
+    margin-bottom: 66px;
+    color: #4f4f4f;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .brow {
+    padding-bottom: 47px;
+  }
+  .bcontainer {
+    width: 74.42%;
+  }
+  .bcontainer .card {
+    box-shadow: 8px 8px 8px -5px rgba(105, 105, 105, 0.75);
+    -webkit-box-shadow: 8px 8px 8px -5px rgba(105, 105, 105, 0.75);
+    -moz-box-shadow: 8px 8px 8px -5px rgba(105, 105, 105, 0.75);
+  }
+  .about .card-title {
+    color: #3d4046;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .about .card-text {
+    color: #565656;
+    font-size: 16px;
+  }
+  .about .card-text small {
+    font-size: 13px;
+    color: #a3a3a3;
+  }
+  .about i {
+    color: black;
+  }
+  .about a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* 4th part */
+  
+  .review {
+    background-color: #F4F5F8;
+  }
+  .rcontainer {
+    max-width: 1158px;
+  }
+  .reviewmrgn {
+    padding-top: 65px;
+    color: #4f4f4f;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .review .card {
+    height: 390px;
+  }
+  .review .msgimg{
+      margin-top: -20px;
+  }
+  .review .rowmrgn {
+    margin-top: 59px;
+  }
+  .review .rowmrgn .card-body {
+    margin-left: 22px;
+  }
+  .review .rowmrgn .card {
+    border-left: 4px solid #1d7a8c;
+  }
+  .review a {
+    text-decoration: none;
+    color: black;
+  }
+  .reviewimg {
+    width: 70px;
+    height: 66px;
+  }
+  .review .custimg {
+    margin-top: 29px;
+    margin-bottom: 27px;
+  }
+  .custimg h5 {
+    color: #4f4f4f;
+    font-weight: bold;
+    size: 20px;
+  }
+  .custimg .city {
+    color: #8e8e8e;
+    size: 14px;
+  }
+  .custimg a {
+    color: #565656;
+    font-size: 18px;
+  }
+  .layer{
+      height: 63px;
+      width: 63px;
+      float: right;
+      margin-top: 574px;
+      margin-right: 63px;
+  }
+  .arrow {
+    width: 29px;
+    height: 9px;
+  }
+  .review h2 {
+    margin-top: 55px;
+    font-size: 18px;
+  }
+  #email {
+    width: 233px;
+    border-radius: 50px;
+    background: none;
+    color: black;
+    border-color: black;
+    display: inline-block;
+  }
+  .submitbtn {
+    background-color: #ff7b6d;
+    color: white;
+    border-radius: 50px;
+    margin-left: 11px;
+  }
+  .review form {
+    margin-top: 20px;
+    padding-bottom: 53px;
+  }
+  
+  /* uparrow */
+  .up_arrow {
+      float: left;
+      width: 50px;
+      height: 50px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #525252;
+  }
+  .up_arr {
+      bottom: 20px;
+      left: 84px;
+      position: fixed;
+  }
+  .uparr_pos {
+      left: 28%;
+      top: 37%;
+      position: absolute;
+  }
+  .chatimg {
+    float: right;
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+  .chat {
+      bottom: 30px;
+    right: 55px;
+    position: fixed;
+  }
+  
+
+  
+  footer{
+    background-color: #111111;
+    width: 100%;
+    color: white;
+  }
+  footer .container a {
+    text-decoration: none;
+    color: white;
+  }
+  .fmenu{
+    height: 131px;
+  }
+  .fimg1 {
+    width: 9px;
+    height: 18px;
+    margin-right: 20px;
+  }
+  .fimg2 {
+    width: 20px;
+    height: 20px;
+  }
+  .frow2 {
+    margin: 0px 0px;
+    padding: 0px 0px;
+  }
+  .frow2 h5 {
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 1.469rem;
+  }
+  #okbtn {
+    background-color: #eed507;
+    border-radius: 50px;
+    width: 99px;
+    height: 40px;
+    font-size: 16px;
+    float: right;
+    margin-right: 15px;
+  }
+  .fmenulink a:hover{
+    color: tomato;
+  }
+
+  @media screen and (max-width: 1150px) {
+    .blog1,
+    .blog {
+      width: 100%;
+      margin-top: 24px;
+    }
+   
+  }
+  @media screen and (max-width: 1110px) {
+    .layer{
+     display: none;
+  }
+  
+  .acontainer .row{
+    justify-content: center;
+  }
+   
+  }
+  @media screen and (max-width: 990px) {
+    .srcard{
+      margin-right: 0px;
+  }
+  }
+  @media screen and (max-width: 900px) {
+    .step-img{
+      flex-direction: column;
+  }
+  .arrow{
+    display: none;
+  }
+  }
+  @media screen and (max-width: 996px) {
+  .fmenu{
+    height: auto;
+  }
+   
+  }
+  
+  
+  @media screen and (max-width: 1415px) {
+    .frow1 {
+      height: auto;
+    }
+    .fimage {
+      margin-top: 61px;
+      float: none;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+    .fimg2 {
+      margin-left: 20px;
+    }
+    .home {
+      background-size: 100% 100vh;
+    }
+  }
+  @media screen and (max-width: 907px) {
+    .submitbtn {
+      margin-top: 10px;
+    }
+    .fmenulink{
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 460px) {
+    .fmenu{
+      flex-direction: column;
+  
+    }
+    .flogo{
+      margin-left: 0px;
+      margin-bottom: 5px;
+    }
+    .fimg2{
+      margin-right: 0px;
+    }
+  }
+  @media screen and (max-width: 1380px) {
+    .service .circle {
+      width: 100%;
+    }
+    .service .card {
+      width: 100%;
+    }
+    .service .circle {
+      height: 100%;
+    }
+    .review .card {
+      width: 100%;
+      height: 100%;
+    }
+    .aboutmrgn2 {
+      margin-left: 0px;
+    }
+    .up_arr {
+      bottom: 20px;
+      left: 10px;
+  }
+  }
