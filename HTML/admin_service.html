@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+            crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" />
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+            crossorigin="anonymous"/>
+	<link rel="stylesheet" href="admin_service.css" />
+	<title>Admin Service Request</title>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid ">
+				<div class="d-flex align-items-center">
+					<div class="mobileNavIcon">
+						<button class="navbar-toggler"> 
+                            <span></span> 
+                            <span></span> 
+                            <span></span>
+                        </button>
+					</div>
+					<h1 class="text-white">helperland</h1> 
+                </div>
+				<div class="d-flex align-items-center admin-detail"> 
+                    <img 
+                        class="mx-1" 
+                        src="images/iuser.png" 
+                        alt="userIcon" /> 
+                        <span class="text-white mx-1">James Smith</span> 
+                        <img class="mx-1" src="images/logout.png" /> 
+                </div>
+			</div>
+		</nav>
+	</header>
+	<section class="main">
+		<div class="container-fluid dashboard">
+			<div class="d-flex" id="wrapper">
+				<div id="sidebar-wrapper">
+					<div class="closebtn d-none"> <img src="images/close.png" alt="close">
+						<br>
+						<hr> </div>
+					<ul>
+						<li><a href="admin_service.html" class="active">Service Requests</a></li>
+						<li><a href="admin_user.html">User Management</a></li>
+					</ul>
+				</div>
+				
+				<div class="w-100 pl-3" id="page-content-wrapper">
+					<div class="d-flex datatable_heading">
+						<div>Service Requests</div>
+					</div>
+					<div>
+						<form>
+							<div class="filter row">
+								<div class="col-xl-1 col-md-4 col-6">
+									<input type="text" id="serviceID" name="serviceID" placeholder="Service ID"> 
+                                </div>
+								<div class="col-xl-2 col-md-4 col-6">
+									<select name="Customer" id="Customer">
+										<option selected>Customer</option>
+										<option value="Customer1">Customer1</option>
+										<option value="Customer2">Customer2</option>
+										<option value="Customer3">Customer3</option>
+									</select>
+								</div>
+								<div class="col-xl-2 col-md-4 col-6">
+									<select name="ServiceProvider" id="ServiceProvider">
+										<option selected>Service Provider</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</div>
+								<div class="col-xl-1 col-md-4 col-6">
+									<select name="status" id="status">
+										<option selected>Status</option>
+										<option value="Active">Active</option>
+										<option value="Inactive">Inactive</option>
+									</select>
+								</div>
+								<div class="col-xl-2 col-md-4 col-6">
+									<div class="input-group">
+										<input class="form-control" id="from-date" name="date" placeholder="From Date" type="text" /> 
+                                    </div>
+								</div>
+								<div class="col-xl-2 col-md-4 col-6">
+									<div class="input-group">
+										<input class="form-control" id="to-date" name="date" placeholder="To Date" type="text" /> 
+                                    </div>
+								</div>
+								<div class="col-xl-1 col-md-4 col-6">
+									<button type="submit" id="search">Search</button>
+								</div>
+								<div class="col-xl-1 col-md-4 col-6">
+									<button id="clear">Clear</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="py-2 mt-3 mobile_sorting text-center">
+                        <a  href="#" data-toggle="modal" data-target="#mobileSorting" data-dismiss="modal">Sort Data : <img src="images/ud_arrow.png" alt="sorting-arrow"></a>
+                    </div>
+			<div class="modal fade" id="mobileSorting" role="dialog">
+				<div class="modal-dialog">
+				   <div class="modal-content">
+					  <div class="modal-header">
+						 <h4 class="modal-title">Choose Option</h4>
+						 <a  class="close" data-dismiss="modal"><img src="images/close.png" alt="closebtn"></a>
+					  </div>
+					  <div class="modal-body forgot-password">
+						 <form>
+							<input type="radio" name="sortOption"  id="ServiceIdAscending" value="ServiceId:Ascending">&nbsp;Service Id : Ascending<br>
+							<input type="radio" name="sortOption"  id="ServiceIdDescending" value="ServiceId:Descending">&nbsp;Service Id : Descending<br>
+							<input type="radio" name="sortOption"  id="ServiceDateOldest" value="ServiceDate:Oldest">&nbsp;Service Date : Oldest<br>
+							<input type="radio" name="sortOption"  id="ServiceDateLatest" value="ServiceDate:Latest">&nbsp;Service Date : Latest<br>
+							<input type="radio" name="sortOption"  id="Customer:AtoZ" value="Customer:AtoZ">&nbsp;Customer : A to Z<br>
+							<input type="radio" name="sortOption"  id="Customer:ZtoA" value="Customer:ZtoA">&nbsp;Customer : Z to A<br>
+							<input type="radio" name="sortOption"  id="ServiceProviderAtoZ" value="ServiceProvider:AtoZ">&nbsp;Service Provider : A to Z<br>
+                                 <input type="radio" name="sortOption"  id="ServiceProvider:ZtoA" value="ServiceProvider:ZtoA">&nbsp;Service Provider : Z to A<br>
+							<input type="radio" name="sortOption"  id="Status:Ascending" value="Status:Ascending">&nbsp;Status : Ascending<br>
+							<input type="radio" name="sortOption"  id="Status:Descending" value="Status:Descending">&nbsp;Status : Descending<br>
+				 
+						 </form>
+					  </div>
+				   </div>
+				</div>
+			 </div>
+					<div class="row mt-3">
+						<div class="col">
+							<table class="dataTable w-100 table" id="serviceRequesttable">
+								<thead>
+									<tr>
+										<th>Service ID</th>
+										<th>Service date</th>
+										<th>Customer detail</th>
+										<th>Service Provider</th>
+										<th>Status</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td></td>
+										<td class="new"><span>New</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">option1</a></li>
+													<li><a href="#">option2</a></li>
+													<li><a href="#">option3</a></li>
+													<li class="mb-0"><a href="#">option4</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>3236</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td></td>
+										<td class="new"><span>New</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">option1</a></li>
+													<li><a href="#">option2</a></li>
+													<li><a href="#">option3</a></li>
+													<li class="mb-0"><a href="#">option4</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="pending"><span>Pending</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">Edit & Reschedule</a></li>
+													<li><a href="#">Refund</a></li>
+													<li><a href="#">Cancel</a></li>
+													<li><a href="#"> Change SP</a></li>
+													<li><a href="#">Escalate</a></li>
+													<li><a href="#"> History Log </a></li>
+													<li class="mb-0"><a href="#"> Download Invoice</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323136</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="pending"><span>Pending</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">Edit & Reschedule</a></li>
+													<li><a href="#">Refund</a></li>
+													<li><a href="#">Cancel</a></li>
+													<li><a href="#"> Change SP</a></li>
+													<li><a href="#">Escalate</a></li>
+													<li><a href="#"> History Log </a></li>
+													<li class="mb-0"><a href="#"> Download Invoice</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="Completed"><span>Completed</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">Refund</a></li>
+													<li><a href="#">Escalate</a></li>
+													<li><a href="#"> History Log </a></li>
+													<li class="mb-0"><a href="#">Downlaod Invoice</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 12/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="Completed"><span>Completed</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">Refund</a></li>
+													<li><a href="#">Escalate</a></li>
+													<li><a href="#"> History Log </a></li>
+													<li class="mb-0"><a href="#">Downlaod Invoice</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 18/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="Cancel"><span>Cancelled</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">option1</a></li>
+													<li><a href="#">option2</a></li>
+													<li><a href="#">option3</a></li>
+													<li class="mb-0"><a href="#">option4</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Mustrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="Completed"><span>Completed</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">Refund</a></li>
+													<li><a href="#">Escalate</a></li>
+													<li><a href="#"> History Log </a></li>
+													<li class="mb-0"><a href="#">Downlaod Invoice</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="Cancel"><span>Cancelled</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">option1</a></li>
+													<li><a href="#">option2</a></li>
+													<li><a href="#">option3</a></li>
+													<li class="mb-0"><a href="#">option4</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Muferstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="Completed"><span>Completed</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">Refund</a></li>
+													<li><a href="#">Escalate</a></li>
+													<li><a href="#"> History Log </a></li>
+													<li class="mb-0"><a href="#">Downlaod Invoice</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="Cancel"><span>Cancelled</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">option1</a></li>
+													<li><a href="#">option2</a></li>
+													<li><a href="#">option3</a></li>
+													<li class="mb-0"><a href="#">option4</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="pending"><span>Pending</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">Edit & Reschedule</a></li>
+													<li><a href="#">Refund</a></li>
+													<li><a href="#">Cancel</a></li>
+													<li><a href="#"> Change SP</a></li>
+													<li><a href="#">Escalate</a></li>
+													<li><a href="#"> History Log </a></li>
+													<li class="mb-0"><a href="#"> Download Invoice</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>323436</td>
+										<td>
+											<p class="date"><img src="images/cal.png"> 09/04/2018</p>
+											<p><img src="images/layer-712.png"> 12:00-18:00</p>
+										</td>
+										<td>
+											<p>David Bough</p>
+											<p><img src="images/layer-719.png"> Musterstrabe 5,12345 Bonn</p>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col sp_icon">
+													<Span class="img_circle">
+                                              <img src="images/cap.png" alt="cap">
+                                              </Span> </div>
+												<div class="col">
+													<p>Lyum Watson</p>
+													<p>
+														<div class="Stars" id="rate1" style="--rating: 4;"></div>&nbsp;4</p>
+												</div>
+											</div>
+										</td>
+										<td class="pending"><span>Pending</span></td>
+										<td class="actionbutton">
+											<div class="action"> <span></span> <span></span> <span></span> </div>
+											<div class="threeDotsubMenu">
+												<ul>
+													<li><a href="#">Edit & Reschedule</a></li>
+													<li><a href="#">Refund</a></li>
+													<li><a href="#">Cancel</a></li>
+													<li><a href="#"> Change SP</a></li>
+													<li><a href="#">Escalate</a></li>
+													<li><a href="#"> History Log </a></li>
+													<li class="mb-0"><a href="#"> Download Invoice</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<p class="rights">©2018 Helperland. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+			crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+			crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+			crossorigin="anonymous"></script>
+	
+	<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+	<script src="js/admin_service.js"></script>
+</body>
+
+</html>
