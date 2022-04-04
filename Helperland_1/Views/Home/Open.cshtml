@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Helperland_1.Models.Popup
+@{
+    Layout = null;
+}
+
+<div class="CalLeft">
+    <h4>@Model.ServiceStartDate.ToShortDateString()</h4>
+    <p><b>Duration:</b>@Model.ServiceHours Hrs</p>
+    <hr>
+    <p><b>Service Id:</b>@Model.ServiceId</p>
+    <p><b>Extras:</b>Inside cabinets, Inside fridge, Inside oven, Laundry wash & dry, Interior windows</p>
+    <p>
+        <b>Net Amount:</b>
+        <spna class="currency fw-bolder">@Model.SubTotal $</spna>
+    </p>
+    <hr>
+    <p><b>Service Address:</b>@Model.AddressLine1</p>
+    <p><b>Billing Address:</b>@Model.AddressLine1</p>
+    <p><b>Phone:</b>@Model.Mobile</p>
+    <p><b>Email:</b>@Model.Email</p>
+    <hr>
+    <p><b>Comments</b></p>
+    @*<div>
+            <p>Hello</p>
+        </div>*@
+    <p>I don't have pets at home</p>
+    <span class="main-btn modal-footer text-center mb-3">
+        <a href="#rescheduleClick" data-toggle="modal" itmReq="@Model.ServiceRequestId" role="button" class="reschedule-btn rounded-pill text-light text-decoration-none">Reschedule</a>
+        <a href="#cancelServiceRequest" data-dismiss="modal" itmReq="@Model.ServiceRequestId" role="button" class="cancel1 rounded-pill text-light text-decoration-none cancel-btn">Cancel</a>
+    </span>
+</div>
